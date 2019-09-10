@@ -3,6 +3,8 @@ package com.example.ddxz.hencoder
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -72,7 +74,21 @@ class MainActivity : AppCompatActivity() {
             it % 3 == 0
         }
         Log.d(tag, filter.toString())
+
+        // 第四节
+        fill(arrayOfNulls(1), Button(this))
+        copy(arrayOf(Button(this)), arrayOfNulls(1))
     }
 
     fun logViewId (view : View?) = view?.id ?: 0
+
+    fun fill(array : Array<in TextView>, btn : Button) {
+        array[0] = btn
+    }
+
+    fun copy(array1: Array<out TextView>, array2: Array<in TextView>) {
+        for (i in array1.indices) {
+            array2[i] = array1[i]
+        }
+    }
 }

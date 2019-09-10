@@ -1,0 +1,74 @@
+package com.example.ddxz.hencoder
+
+import android.os.Bundle
+import android.util.Log
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+
+    lateinit var view : View;
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        // 第一节
+        view = View(this)
+        logViewId(view)
+
+        // 第二节
+        val privateInstance = PrivateInstance.newInstance()
+
+        val maxCount = 100_000
+
+        //Array 方式
+        val timeArrayStart = System.currentTimeMillis()
+        val array = Array(maxCount) {it}
+        var arrayCount = 0
+        for (i in array) {
+            arrayCount += i
+        }
+        val num1 = arrayCount / array.size
+        val timeArrayEnd = System.currentTimeMillis()
+        Log.d("henCoder demo", "Array 平均值：$num1 用时：${timeArrayEnd - timeArrayStart}ms")
+
+        //IntArray 方式
+        val timeIntArrayStart = System.currentTimeMillis()
+        val intArray = IntArray(maxCount) {it}
+        var intArrayCount = 0
+        for (i in intArray) {
+            intArrayCount += i
+        }
+        val num2 = intArrayCount / array.size
+        val timeIntArrayEnd = System.currentTimeMillis()
+        Log.d("henCoder demo", "IntArray 平均值：$num2 用时：${timeIntArrayEnd - timeIntArrayStart}ms")
+
+        //List 方式
+        val timeListStart = System.currentTimeMillis()
+        val list = List(maxCount) {it}
+//        val list = mutableListOf<Int>()
+//        for (i in 0..maxCount) {
+//            list.add(i)
+//        }
+        var listCount = 0
+        for (item in list) {
+            listCount += item
+        }
+        val num3 = listCount / list.size
+        val timeListEnd = System.currentTimeMillis()
+        Log.d("henCoder demo", "List 平均值：$num3 用时：${timeListEnd - timeListStart}ms")
+
+
+        // 第三节
+        CustomStudent(name = null).show()
+
+        val list2 = listOf(21, 40, 11, 33, 78)
+        val filter = list2.filter {
+            it % 3 == 0
+        }
+        Log.d("henCoder demo", filter.toString())
+    }
+
+    fun logViewId (view : View?) = view?.id ?: 0
+}

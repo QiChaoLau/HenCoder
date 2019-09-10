@@ -7,7 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var view : View;
+    companion object {
+        const val tag = "henCoder demo"
+    }
+
+    lateinit var view : View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         }
         val num1 = arrayCount / array.size
         val timeArrayEnd = System.currentTimeMillis()
-        Log.d("henCoder demo", "Array 平均值：$num1 用时：${timeArrayEnd - timeArrayStart}ms")
+        Log.d(tag, "Array 平均值：$num1 用时：${timeArrayEnd - timeArrayStart}ms")
 
         //IntArray 方式
         val timeIntArrayStart = System.currentTimeMillis()
@@ -42,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         }
         val num2 = intArrayCount / array.size
         val timeIntArrayEnd = System.currentTimeMillis()
-        Log.d("henCoder demo", "IntArray 平均值：$num2 用时：${timeIntArrayEnd - timeIntArrayStart}ms")
+        Log.d(tag, "IntArray 平均值：$num2 用时：${timeIntArrayEnd - timeIntArrayStart}ms")
 
         //List 方式
         val timeListStart = System.currentTimeMillis()
@@ -67,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         val filter = list2.filter {
             it % 3 == 0
         }
-        Log.d("henCoder demo", filter.toString())
+        Log.d(tag, filter.toString())
     }
 
     fun logViewId (view : View?) = view?.id ?: 0

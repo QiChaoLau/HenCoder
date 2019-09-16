@@ -78,6 +78,7 @@ class MainActivity : AppCompatActivity() {
         // 第四节
         fill(arrayOfNulls(1), Button(this))
         copy(arrayOf(Button(this)), arrayOfNulls(1))
+
     }
 
     fun logViewId (view : View?) = view?.id ?: 0

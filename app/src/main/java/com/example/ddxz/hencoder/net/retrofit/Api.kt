@@ -4,7 +4,7 @@ import com.example.ddxz.hencoder.model.reposity.ActBanner
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.Query
 
 /**
  * author:LauQiChao
@@ -12,5 +12,5 @@ import retrofit2.http.Path
  */
 interface Api {
     @GET("product/activityBanner")
-    fun activityBanner(@Path("id") id:Int): Deferred<Response<ActBanner>>
+    fun activityBanner(@Query("id") id:Int): Deferred<Response<ActBanner>>
 }

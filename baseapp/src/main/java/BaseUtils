@@ -1,0 +1,5 @@
+import android.util.Log
+
+fun logDev (message : String, tag : String = "logDev") {
+    Log.d(tag, message)
+}

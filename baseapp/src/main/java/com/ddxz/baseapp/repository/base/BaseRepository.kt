@@ -1,6 +1,6 @@
 package com.ddxz.baseapp.repository.base
 
-import log
+import android.util.Log
 import retrofit2.Response
 import java.io.IOException
 
@@ -18,7 +18,7 @@ open class BaseRepository {
             is Result.Success ->
                 data = result.data
             is Result.Error -> {
-                log("$errorMessage & Exception - ${result.exception}")
+                Log.e("dev", "$errorMessage & Exception - ${result.exception}")
             }
         }
 

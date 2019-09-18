@@ -66,4 +66,6 @@ dependencies {
     implementation rootProject.ext.kotlin_moshi
     kapt rootProject.ext.kapt_moshi
 
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+
 }
